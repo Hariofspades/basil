@@ -1,0 +1,28 @@
+ext {
+
+    // framework
+    compileSdkVersion = 28
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    kotlinVersion = '1.2.61'
+
+    // rx
+    rxKotlinVersion = '2.2.0'
+
+    // test
+    xTestRunnerVersion = '1.1.0-alpha3'
+    xEspressoVersion = '3.1.0-alpha3'
+    jUnitVersion = '4.12'
+    mockitoVersion = '2.0.0-RC1'
+    robolectricVersion = '3.8'
+    mockitoAndroidVersion = '2.6.1'
+
+    domainDependencies = [
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+    ]
+
+    domainTestDependencies = [
+            jUnit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}"
+    ]
+}
