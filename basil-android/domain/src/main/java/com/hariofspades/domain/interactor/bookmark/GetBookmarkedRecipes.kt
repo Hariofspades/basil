@@ -11,7 +11,7 @@ class GetBookmarkedRecipes(
         postExecutionThread: PostExecutionThread
 ) : ObservableUseCase<List<Recipes>, Nothing>(postExecutionThread) {
 
-    override fun buildUseCaseObservable(params: Nothing?): Observable<List<Recipes>> {
+    public override fun buildUseCaseObservable(params: Nothing?): Observable<List<Recipes>> {
         return recipeRepository.getBookmarkedRecipies()
     }
 }

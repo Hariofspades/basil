@@ -11,7 +11,7 @@ class GetBookmarkedProcedure(
         postExecutionThread: PostExecutionThread
 ) : ObservableUseCase<Procedure, GetBookmarkedProcedure.Params>(postExecutionThread) {
 
-    override fun buildUseCaseObservable(params: Params?): Observable<Procedure> {
+    public override fun buildUseCaseObservable(params: Params?): Observable<Procedure> {
         if (params == null) {
             throw IllegalArgumentException("params cannot be null")
         }

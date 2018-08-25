@@ -11,7 +11,7 @@ class GetProcedure(
         postExecutionThread: PostExecutionThread
 ) : ObservableUseCase<Procedure, GetProcedure.Params>(postExecutionThread) {
 
-    override fun buildUseCaseObservable(params: GetProcedure.Params?): Observable<Procedure> {
+    public override fun buildUseCaseObservable(params: GetProcedure.Params?): Observable<Procedure> {
         if (params == null) {
             throw IllegalArgumentException("params cannot be null")
         }

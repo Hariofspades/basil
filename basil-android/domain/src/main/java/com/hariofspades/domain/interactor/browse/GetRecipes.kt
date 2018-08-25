@@ -11,7 +11,7 @@ class GetRecipes(
         postExecutionThread: PostExecutionThread
 ) : ObservableUseCase<List<Recipes>, GetRecipes.Params>(postExecutionThread) {
 
-    override fun buildUseCaseObservable(params: Params?): Observable<List<Recipes>> {
+    public override fun buildUseCaseObservable(params: Params?): Observable<List<Recipes>> {
         if (params == null) {
             throw IllegalArgumentException("params cannot be null")
         }

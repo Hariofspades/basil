@@ -10,7 +10,7 @@ class UnBookmarkRecipe(
         postExecutionThread: PostExecutionThread
 ) : CompletableUseCase<UnBookmarkRecipe.Params>(postExecutionThread) {
 
-    override fun buildUseCaseCompletable(params: UnBookmarkRecipe.Params?): Completable {
+    public override fun buildUseCaseCompletable(params: UnBookmarkRecipe.Params?): Completable {
         if (params == null) {
             throw IllegalArgumentException("params cannot be null")
         }
