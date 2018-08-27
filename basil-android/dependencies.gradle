@@ -25,4 +25,15 @@ ext {
             jUnit: "junit:junit:${jUnitVersion}",
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}"
     ]
+
+    dataDependencies = [
+            rxKotlin: "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
+    ]
+
+    dataTestDependencies = [
+            jUnit: "junit:junit:${jUnitVersion}",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+    ]
 }
