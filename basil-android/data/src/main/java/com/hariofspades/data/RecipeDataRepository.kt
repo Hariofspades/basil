@@ -10,6 +10,7 @@ import com.hariofspades.domain.repository.RecipeRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
+import io.reactivex.rxkotlin.toObservable
 
 class RecipeDataRepository(
         private val recipesCache: RecipesCache,
@@ -28,10 +29,11 @@ class RecipeDataRepository(
                 .flatMap {
                     recipesDataSourceFactory.getDataStore(it.first, it.second).getRecipes(category)
                 }
-                .flatMap {
+                .flatMap { list ->
+                    list.map { it.category = category }
                     recipesDataSourceFactory.getCacheDataStore()
-                            .saveRecipes(it)
-                            .andThen(Observable.just(it))
+                            .saveRecipes(list)
+                            .andThen(Observable.just(list))
                 }
                 .map {
                     it.map(recipeMapper::mapFromEntity)
