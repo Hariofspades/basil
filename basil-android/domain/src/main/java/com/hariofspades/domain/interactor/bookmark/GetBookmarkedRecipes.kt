@@ -9,9 +9,21 @@ import io.reactivex.Observable
 class GetBookmarkedRecipes(
         private val recipeRepository: RecipeRepository,
         postExecutionThread: PostExecutionThread
-) : ObservableUseCase<List<Recipes>, Nothing>(postExecutionThread) {
+) : ObservableUseCase<List<Recipes>, GetBookmarkedRecipes.Params>(postExecutionThread) {
 
-    public override fun buildUseCaseObservable(params: Nothing?): Observable<List<Recipes>> {
-        return recipeRepository.getBookmarkedRecipies()
+    public override fun buildUseCaseObservable(params: Params?): Observable<List<Recipes>> {
+        if (params == null) {
+            throw IllegalArgumentException("params cannot be null")
+        }
+
+        return recipeRepository.getBookmarkedRecipies(params.category)
+    }
+
+    data class Params(val category: String) {
+        companion object {
+            fun forRecipes(category: String): Params {
+                return Params(category)
+            }
+        }
     }
 }

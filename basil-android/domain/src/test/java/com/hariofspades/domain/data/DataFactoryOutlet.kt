@@ -14,6 +14,8 @@ object DataFactoryOutlet {
                 DataFactory.randomString(),
                 DataFactory.randomString(),
                 DataFactory.randomInt(),
+                DataFactory.randomString(),
+                DataFactory.randomBoolean(),
                 DataFactory.randomString()
         )
     }

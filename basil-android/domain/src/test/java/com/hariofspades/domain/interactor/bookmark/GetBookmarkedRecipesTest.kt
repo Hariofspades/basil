@@ -34,10 +34,12 @@ class GetBookmarkedRecipesTest {
 
     @Test
     fun `get bookmarked recipes completes`() {
-        whenever(recipeRepository.getBookmarkedRecipies())
+        whenever(recipeRepository.getBookmarkedRecipies(any()))
                 .thenReturn(Observable.just(DataFactoryOutlet.makeRecipesList(2)))
 
-        val testObserver = getBookmarkedRecipes.buildUseCaseObservable().test()
+        val testObserver = getBookmarkedRecipes.buildUseCaseObservable(
+                GetBookmarkedRecipes.Params.forRecipes(DataFactory.randomString())
+        ).test()
 
         testObserver.assertComplete()
     }
@@ -46,10 +48,17 @@ class GetBookmarkedRecipesTest {
     fun `get bookmarked recipes returns a value`() {
         val recipes = DataFactoryOutlet.makeRecipesList(2)
 
-        whenever(recipeRepository.getBookmarkedRecipies()).thenReturn(Observable.just(recipes))
+        whenever(recipeRepository.getBookmarkedRecipies(any())).thenReturn(Observable.just(recipes))
 
-        val testObserver = getBookmarkedRecipes.buildUseCaseObservable().test()
+        val testObserver = getBookmarkedRecipes.buildUseCaseObservable(
+                GetBookmarkedRecipes.Params.forRecipes(DataFactory.randomString())
+        ).test()
 
         testObserver.assertValue(recipes)
+    }
+
+    @Test(expected=IllegalArgumentException::class)
+    fun `get bookmarked recipes throws exception`() {
+        getBookmarkedRecipes.buildUseCaseObservable().test()
     }
 }

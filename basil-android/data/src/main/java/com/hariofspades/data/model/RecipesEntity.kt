@@ -1,6 +1,6 @@
-package com.hariofspades.domain.model
+package com.hariofspades.data.model
 
-data class Recipes(
+data class RecipesEntity (
         val id: String,
         val publisher: String,
         val siteUrl: String,

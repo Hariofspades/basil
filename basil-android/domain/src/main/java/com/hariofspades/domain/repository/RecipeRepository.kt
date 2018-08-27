@@ -11,7 +11,7 @@ interface RecipeRepository {
 
     fun getProcedure(id: String): Observable<Procedure>
 
-    fun getBookmarkedRecipies(): Observable<List<Recipes>>
+    fun getBookmarkedRecipies(category: String): Observable<List<Recipes>>
 
     fun getBookmarkedProcedure(id: String): Observable<Procedure>
 
