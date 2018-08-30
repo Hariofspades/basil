@@ -15,7 +15,8 @@ class RecipesEntityMapper : EntityMapper<RecipesEntity, Recipes> {
                 entity.imageUrl,
                 entity.rating,
                 entity.publisherUrl,
-                entity.isBookmarked
+                entity.isBookmarked,
+                entity.category
         )
     }
 
@@ -29,7 +30,8 @@ class RecipesEntityMapper : EntityMapper<RecipesEntity, Recipes> {
                 domain.imageUrl,
                 domain.rating,
                 domain.publisherUrl,
-                domain.isBookmarked
+                domain.isBookmarked,
+                domain.category
         )
     }
 }

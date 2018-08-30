@@ -19,4 +19,8 @@ interface RecipeRepository {
 
     fun unBookmarkRecipie(id: String): Completable
 
+    fun bookmarkProcedure(id: String): Completable
+
+    fun unBookmarkProcedure(id: String): Completable
+
 }

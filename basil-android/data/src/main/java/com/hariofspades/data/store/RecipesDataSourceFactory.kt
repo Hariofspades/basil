@@ -14,7 +14,7 @@ open class RecipesDataSourceFactory(
         }
     }
 
-    open fun getCacheDataStore(): RecipesCacheDataStore {
+    open fun getCacheDataStore(): RecipesDataSource {
         return recipesCacheDataStore
     }
 

@@ -27,4 +27,8 @@ interface RecipesDataSource {
 
     fun unBookmarRecipe(id: String): Completable
 
+    fun bookmarkProcedure(id: String): Completable
+
+    fun unBookmarProcedure(id: String): Completable
+
 }

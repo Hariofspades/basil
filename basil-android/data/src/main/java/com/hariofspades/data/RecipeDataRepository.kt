@@ -55,9 +55,7 @@ class RecipeDataRepository(
                             .saveProcedure(it)
                             .andThen(Observable.just(it))
                 }
-                .map {
-                    procedureMapper.mapFromEntity(it)
-                }
+                .map(procedureMapper::mapFromEntity)
     }
 
     override fun getBookmarkedRecipies(category: String): Observable<List<Recipes>> {
@@ -78,6 +76,14 @@ class RecipeDataRepository(
 
     override fun unBookmarkRecipie(id: String): Completable {
         return recipesDataSourceFactory.getCacheDataStore().unBookmarRecipe(id)
+    }
+
+    override fun bookmarkProcedure(id: String): Completable {
+        return recipesDataSourceFactory.getCacheDataStore().bookmarkProcedure(id)
+    }
+
+    override fun unBookmarkProcedure(id: String): Completable {
+        return recipesDataSourceFactory.getCacheDataStore().unBookmarProcedure(id)
     }
 
 }

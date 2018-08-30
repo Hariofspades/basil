@@ -51,5 +51,12 @@ class RecipesRemoteDataSource(
         throw UnsupportedOperationException("clearing procedure is not supported here..")
     }
 
+    override fun bookmarkProcedure(id: String): Completable {
+        throw UnsupportedOperationException("bookmaring procedure operation not allowed..")
+    }
+
+    override fun unBookmarProcedure(id: String): Completable {
+        throw UnsupportedOperationException("un bookmaring procedure operation not allowed..")
+    }
 
 }

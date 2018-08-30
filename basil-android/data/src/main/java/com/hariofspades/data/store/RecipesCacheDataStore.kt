@@ -52,4 +52,13 @@ class RecipesCacheDataStore(
     override fun unBookmarRecipe(id: String): Completable {
         return recipesCache.unBookmarRecipe(id)
     }
+
+    override fun bookmarkProcedure(id: String): Completable {
+        return recipesCache.bookmarkProcedure(id)
+    }
+
+    override fun unBookmarProcedure(id: String): Completable {
+        return recipesCache.unBookmarProcedure(id)
+    }
+
 }
